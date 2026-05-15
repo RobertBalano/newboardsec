@@ -12,8 +12,8 @@ export default function Voting() {
       status: 'closed',
       totalMembers: 12,
       results: [
-        { name: 'JOHN DOE', role: 'Chair', votes: 8, isWinner: true },
-        { name: 'JOHN DOE 2', role: 'Vice Chair', votes: 4, isWinner: false },
+        { name: 'CANDIDATE 1', role: 'Chair', votes: 8, isWinner: true },
+        { name: 'CANDIDATE 2', role: 'Vice Chair', votes: 4, isWinner: false },
       ]
     },
     {

@@ -115,15 +115,3 @@ export interface Report {
   period: string;
   summary: string;
 }
-export interface BoardMember {
-  id: string;
-  name: string;
-  role: MemberRole;
-  email: string;
-  phone: string;
-  joinDate: string;
-  avatar: string;
-  designation: string;
-  // Add this line to store ballot results per member
-  votes?: Record<string, 'yes' | 'no' | 'abstain'>; 
-}

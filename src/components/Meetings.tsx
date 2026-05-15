@@ -19,7 +19,6 @@ export default function Meetings() {
     location: '',
   });
 
-  // Arranges the meetings by date (Descending: Newest to Oldest)
   const filtered = (filterStatus === 'all' ? meetings : meetings.filter(m => m.status === filterStatus))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
@@ -130,7 +129,6 @@ export default function Meetings() {
         ))}
       </div>
 
-      {/* Meeting Detail Modal */}
       {selected && (
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-start justify-end p-4">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-xl max-h-[calc(100vh-2rem)] overflow-y-auto">
@@ -149,7 +147,6 @@ export default function Meetings() {
         </div>
       )}
 
-      {/* Create Meeting Modal */}
       {showForm && (
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md">
@@ -227,7 +224,7 @@ export default function Meetings() {
                 />
               </div>
 
-              {/* INTEGRATED AGENDA SECTION */}
+              
               <div className="pt-2">
                 <label className="block text-xs font-medium text-slate-600 mb-2">Meeting Agenda</label>
                 <div className="flex items-center justify-between p-3 border border-dashed border-slate-200 rounded-lg bg-slate-50/50">

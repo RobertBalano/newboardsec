@@ -118,7 +118,6 @@ export default function Workflow() {
       <div className="space-y-3">
         {filtered.map(workflow => {
           const status = getApprovalStatus(workflow);
-          const statusIcon = status === 'approved' ? CheckCircle2 : status === 'rejected' ? XCircle : Clock;
           const statusColor =
             status === 'approved' ? 'text-emerald-500 bg-emerald-50' : status === 'rejected' ? 'text-rose-500 bg-rose-50' : 'text-amber-500 bg-amber-50';
 

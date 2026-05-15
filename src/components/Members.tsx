@@ -1,20 +1,3 @@
-interface Member {
-  id: string;
-  name: string;
-  role: string;
-  designation: string;
-  email: string;
-  isActive: boolean;
-  // ADD THIS LINE BELOW:
-  votes?: Record<string, 'yes' | 'no' | 'abstain'>; 
-  representative?: {
-    id: string;
-    name: string;
-    designation: string;
-    email: string;
-    isActive: boolean;
-  };
-}
 import { useState, useRef } from 'react';
 import { Mail, Phone, Plus, X, Camera } from 'lucide-react';
 import { MemberRole } from '../types';
@@ -94,7 +77,6 @@ export default function Members() {
 
     return (
       <div className={`bg-white p-6 rounded-[2rem] border transition-all duration-300 ${!member.isActive ? 'opacity-60 grayscale-[0.4]' : ''} ${isRep ? 'border-amber-100 ml-12 mt-[-1rem] relative z-0 border-t-0 rounded-t-none bg-amber-50/20' : 'border-slate-100 shadow-sm z-10 relative'}`}>
-        {/* Status Toggle Switch */}
         <div className="flex justify-end mb-2">
           <label className="relative inline-flex items-center cursor-pointer scale-75 origin-right">
             <input 

@@ -9,10 +9,9 @@ import {
   GitBranch, 
   BarChart3, 
   Vote, 
-  ShieldCheck // Added for Manage Account
+  ShieldCheck
 } from 'lucide-react';
 
-// Updated Page type to include 'accounts'
 type Page = 'dashboard' | 'meetings' | 'members' | 'minutes' | 'actions' | 'documents' | 'workflow' | 'voting' | 'analytics' | 'resolutions' | 'accounts';
 
 interface SidebarProps {
@@ -31,7 +30,6 @@ const navItems = [
   { id: 'voting' as Page, label: 'Voting', icon: Vote },
   { id: 'analytics' as Page, label: 'Reports', icon: BarChart3 },
   { id: 'resolutions' as Page, label: 'Resolutions', icon: FileText },
-  // Added Manage Accounts item
   { id: 'accounts' as Page, label: 'Manage Account', icon: ShieldCheck },
 ];
 
@@ -75,12 +73,12 @@ export default function Sidebar({ currentPage, onNavigate }: SidebarProps) {
         })}
       </nav>
 
-     {/* ... rest of the sidebar code ... */}
+     
 
       <div className="px-4 py-4 border-t border-primary-800/50">
         <div className="flex items-center gap-3">
           <img
-            src="/debbie.jpg" // Make sure to update this path with the actual image
+            src="/debbie.jpg" 
             alt="Dr. Debbie Joyce R. Voloso"
             className="w-8 h-8 rounded-full object-cover border border-primary-700"
           />

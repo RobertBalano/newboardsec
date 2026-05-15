@@ -17,10 +17,9 @@ export default function Documents() {
   const [filterType, setFilterType] = useState<string>('all');
   const [filterCategory, setFilterCategory] = useState<string>('all');
   const [showArchived, setShowArchived] = useState(false);
-  const [selected, setSelected] = useState<Document | null>(null);
+  const [, setSelected] = useState<Document | null>(null);
   const [showUpload, setShowUpload] = useState(false);
 
-  // Logic to exclude "Governance" from the list of categories
   const existingCategories = Array.from(new Set(documents.map(d => d.category)))
     .filter(cat => cat !== 'Governance'); // Filter out Governance here
     
@@ -28,14 +27,12 @@ export default function Documents() {
   const categories = Array.from(new Set([...coreCategories, ...existingCategories]));
   
   const types = ['all', 'policy', 'moa', 'memo', 'contract', 'other'];
-  const restrictionLevels = ['Confidential', 'Controlled', 'General'];
 
   const filtered = documents.filter(d => {
     const matchesSearch = d.title.toLowerCase().includes(search.toLowerCase()) || d.fileName.toLowerCase().includes(search.toLowerCase());
     const matchesType = filterType === 'all' || d.type === filterType;
     const matchesCategory = filterCategory === 'all' || d.category === filterCategory;
     const matchesArchive = showArchived ? d.archived : !d.archived;
-    // Ensure "Governance" documents don't show up at all in the general list
     const isNotGovernance = d.category !== 'Governance'; 
     
     return matchesSearch && matchesType && matchesCategory && matchesArchive && isNotGovernance;
@@ -53,7 +50,6 @@ export default function Documents() {
 
   return (
     <div className="p-8">
-      {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Documents & Records</h1>
@@ -68,7 +64,6 @@ export default function Documents() {
         </button>
       </div>
 
-      {/* Search & Filters */}
       <div className="space-y-4 mb-6">
         <div className="relative">
           <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -81,7 +76,6 @@ export default function Documents() {
           />
         </div>
 
-        {/* Filter Buttons */}
         <div className="flex flex-col gap-3">
             <div className="flex gap-3 flex-wrap items-center">
                 <span className="text-xs font-medium text-slate-500 w-16">Type:</span>
@@ -133,7 +127,6 @@ export default function Documents() {
         </label>
       </div>
 
-      {/* Documents Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {filtered.map(doc => (
           <div
@@ -172,7 +165,6 @@ export default function Documents() {
         ))}
       </div>
 
-      {/* Upload Modal */}
       {showUpload && (
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden">

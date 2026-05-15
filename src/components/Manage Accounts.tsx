@@ -66,7 +66,6 @@ export default function ManageAccount() {
     m.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Helper function to get color classes based on role
   const getRoleStyles = (role: string, isActive: boolean) => {
     if (!isActive) return { icon: 'bg-slate-100 text-slate-400', badge: 'bg-slate-100 text-slate-500' };
     
