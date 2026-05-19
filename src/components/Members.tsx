@@ -76,7 +76,7 @@ export default function Members() {
     };
 
     return (
-      <div className={`bg-white p-6 rounded-[2rem] border transition-all duration-300 ${!member.isActive ? 'opacity-60 grayscale-[0.4]' : ''} ${isRep ? 'border-amber-100 ml-12 mt-[-1rem] relative z-0 border-t-0 rounded-t-none bg-amber-50/20' : 'border-slate-100 shadow-sm z-10 relative'}`}>
+      <div className={`bg-white p-6 rounded-[2rem] border transition-all duration-300 ${!member.isActive ? 'opacity-40 grayscale' : ''} ${isRep ? 'border-amber-100 ml-12 mt-[-1rem] relative z-0 border-t-0 rounded-t-none bg-amber-50/20' : 'border-slate-100 shadow-sm z-10 relative'}`}>
         <div className="flex justify-end mb-2">
           <label className="relative inline-flex items-center cursor-pointer scale-75 origin-right">
             <input 
@@ -92,15 +92,21 @@ export default function Members() {
           </label>
         </div>
 
-        <div className="flex items-center gap-5 mb-4">
-          <div className={`${isRep ? 'w-14 h-14' : 'w-20 h-20'} rounded-full overflow-hidden bg-slate-100 border-2 border-white flex-shrink-0 shadow-sm relative`}>
-            {member.avatar ? (
-              <img src={member.avatar} className="w-full h-full object-cover" alt={member.name} />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-slate-300 font-bold text-xl">{member.name.charAt(0)}</div>
-            )}
-            <div className={`absolute bottom-1 right-1 w-3 h-3 rounded-full border-2 border-white ${member.isActive ? 'bg-emerald-500' : 'bg-slate-400'}`}></div>
+        <div className="flex items-center gap-5 mb-4 relative">
+      
+          <div className="relative flex-shrink-0">
+            
+            <div className={`${isRep ? 'w-14 h-14' : 'w-20 h-20'} rounded-full overflow-hidden bg-slate-100 border-2 border-white shadow-sm`}>
+              {member.avatar ? (
+                <img src={member.avatar} className="w-full h-full object-cover" alt={member.name} />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-slate-300 font-bold text-xl">{member.name.charAt(0)}</div>
+              )}
+            </div>
+          
+            <div className={`absolute bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-white shadow-sm transition-colors duration-300 ${member.isActive ? 'bg-emerald-500' : 'bg-slate-400'}`}></div>
           </div>
+
           <div className="flex-1 min-w-0">
             <h3 className={`${isRep ? 'text-base' : 'text-lg'} font-bold text-[#1e293b] leading-tight mb-1`}>{member.name}</h3>
             <span className={`text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider ${getRoleStyles(member.role)}`}>
